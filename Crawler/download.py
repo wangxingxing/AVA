@@ -26,6 +26,10 @@ def main(output_dir):
             if not glob.glob(os.path.join(output_dir, split, youtube_id+'.*')) or glob.glob(os.path.join(output_dir, split, youtube_id+'*.part')):
                 with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                     ydl.download(['http://www.youtube.com/watch?v=' + youtube_id])
+        print("=================================================================")
+        for youtube_id in list[0].unique():
+            if not glob.glob(os.path.join(output_dir, split, youtube_id+'.*')) or glob.glob(os.path.join(output_dir, split, youtube_id+'*.part')):
+                print(youtube_id + " not download")
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser(description = 'Download ava')
